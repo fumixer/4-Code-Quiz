@@ -22,9 +22,42 @@
   }
 
   header {
+    display: flex;
+    justify-content: space-between;
     background: var(--secondary);
     padding: 10px 10px;
     border-bottom: 0px solid var(--primary);
+    text-decoration-color: pink;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .high {
+    color: rgb(163, 50, 238);
+  }
+
+  .text-center {
+    text-align: right;
+  }
+  
+  .main {
+    font-size: 1.3rem;
+    width: 600px;
+    margin: auto;
+  }
+
+  .answers {
+    width: 600px;
+    margin: auto;
+  }
+
+  .result {
+    width: 600px;
+    margin: auto;
+    font-style: italic;
+    color: grey;
+    font-size: 2em;
+    border-top: solid 1px gray;
   }
 
   .btn {
@@ -32,7 +65,7 @@
     border: none;
     color: #FFF;
     width: 200px;
-    margin: 3px 2px;
+    margin: 4px 2px;
     display: inline-block;
     text-align: left;
     padding: 8px 10px;
@@ -43,3 +76,11 @@
     top: -3px;
     box-shadow: 0 0px var(--grey);
   }
+
+  .btn:hover {
+    background: rgb(244, 10, 228);
+    color: #fff;
+  }
+
+.options {
+padding: 50px;

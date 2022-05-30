@@ -1,38 +1,26 @@
 //Timer
-
-
 function paddedFormat(num) {
     return num < 10 ? "0" + num : num; 
 }
 
 function startCountDown(duration, element) {
-
     let secondsRemaining = duration;
     let min = 0;
     let sec = 0;
-
     let countInterval = setInterval(function () {
-
         min = parseInt(secondsRemaining / 100);
         sec = parseInt(secondsRemaining % 100);
-
-        element.textContent = `${paddedFormat(min)}:${paddedFormat(sec)}`;
-
+        element.textContent = 'Time: '+`${paddedFormat(sec)}`;
         secondsRemaining = secondsRemaining - 1;
         if (secondsRemaining < 0) { clearInterval(countInterval) };
-
     }, 1000);
 }
-
 window.onload = function () {
     let time_minutes = 0; // Value in minutes
     let time_seconds = 75; // Value in seconds
-
     let duration = time_minutes * 60 + time_seconds;
-
     element = document.querySelector('#count-down-timer');
-    element.textContent = `${paddedFormat(time_minutes)}:${paddedFormat(time_seconds)}`;
-
+    element.textContent = 'Time: '+`${paddedFormat(time_seconds)}`;
     startCountDown(--duration, element);
 };
 
@@ -81,7 +69,7 @@ const quiz = [
             '2. terminal/bash',
             '3. for loops',
             '4. console.log'],
-        correct: '4.console.log'
+        correct: '4. console.log'
     }
 ];
 const quizLength = quiz.length;
@@ -120,14 +108,16 @@ const clickHandler = (e) => {
     if (quiz[quizIndex].correct === e.target.textContent){ 
         document.getElementById('result').textContent = 'Correct!';
     } else {
-        document.getElementById('result').textContent = 'Incorrect!';
+        document.getElementById('result').textContent = 'Wrong!';
     }
     quizIndex++;
     if(quizIndex < quizLength){
         setupQuiz();
     }else{
         document.getElementById('question').textContent = 'All done!';
-        document.getElementById('question2').textContent = 'Your final score is'+50;
+        document.getElementById('question2').textContent = 'Your final score is' + 'time_seconds';
+        document.getElementById('question3').textcontent = document.SubmitEvent
+  
     }
 
 };
