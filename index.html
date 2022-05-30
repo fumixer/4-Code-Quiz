@@ -17,10 +17,10 @@
         </header>
 
         <!-- Start View -->
-        <div id='startQuiz' >
+        <div class='startQuiz2'id='startQuiz' >
             <h1> Coding quiz challenge </h1>
             <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <button id='startBtn' >Start</button>
+            <button class='startBtn2' id='startBtn' >Start Quiz</button>
         </div>
 
         <!-- Questions View -->
@@ -54,13 +54,24 @@
         </div>
 
         <!-- quiz over view -->
-        <div id="quizOverview"  style="display: none;"> 
-            Coding quiz challenge 
-            <p>Your final score is<span id="finalScore"></span></p>
+        <div class='quizOverview2' id="quizOverview"  style="display: none;"> 
+            <h1>All done!</h1>
+            <p>Your final score is <span id="finalScore"></span></p>
             <p>Enter initials:</p>
             <input id="initial" />
-            <button id="submit" >submit</button>
+            <button class='submit2' id="submit" >submit</button>
+            <div>
+                <p class="result2" id="result2"></p>
+            </div>
         </div>
+
+         <!-- High score view -->
+         <div class='highScoreView' id="highScoreView2">
+            <h1>High scores</h1>
+            <p class="highScore" id="highScore2"> </p>
+            <input id="goBack" />
+            <button class='submit2' id="submit" >submit</button>
+         </div> 
     </div>
     </div>
     <script src="./Develop/script.js"></script>

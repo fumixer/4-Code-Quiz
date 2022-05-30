@@ -1,23 +1,16 @@
 var startView= document.getElementById('startQuiz');
-var quizOverview= document.getElementById('quizOverview')
-var questionView = document.getElementById('questionView')
-var startBtn = document.getElementById('startBtn')
-var countDownTimer =document.getElementById('count-down-timer')
-var finalScore = document.getElementById('finalScore')
-var submit = document.addEventListener('click',initial)
+var quizOverview= document.getElementById('quizOverview');
+var questionView = document.getElementById('questionView');
+var startBtn = document.getElementById('startBtn');
+var countDownTimer =document.getElementById('count-down-timer');
+var finalScore = document.getElementById('finalScore');
+var highScoreView = document.getElementById('highScoreView2');
+// var submit = document.addEventListener('click');
 
 // Timer
 let countInterval;
 var time = 75;
 
-
-function startQuiz (){
-    startView.style.display='none';
-    questionView.style.display='block';
-    setTimer();
-}
-
-//Timer
 function paddedFormat(num) {
     return num < 10 ? "0" + num : num; 
 }
@@ -35,14 +28,17 @@ function startCountDown() {
 }
 // window.onload = function () {
 function setTimer () {
-
     countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
     startCountDown();
 };
 
-//first page
-//document.getElementById('question').textContent = 'Coding Quiz Challenge';
-//document.getElementById('question2').textContent = 'Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!';
+function startQuiz (){
+    startView.style.display='none';
+    questionView.style.display='block';
+    highScoreView.style.display='none';
+    setTimer();
+}
+
 
 //define the questions and answers
 const quiz = [
@@ -101,6 +97,7 @@ const buttonLength = $button.length;
 const setupQuiz = () => {
     //Send the questions to HTML
     document.getElementById('question').textContent = quiz[quizIndex].question;
+    highScoreView.style.display='none';
     //Refactoring of 1.1
     let buttonIndex = 0;
     let buttonLength = $button.length;
@@ -123,22 +120,19 @@ setupQuiz();
 const clickHandler = (e) => {
     if (quiz[quizIndex].correct === e.target.textContent){ 
         document.getElementById('result').textContent = 'Correct!';
+        document.getElementById('result2').textContent = 'Correct!';
     } else {
         time-=10;
         countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
         document.getElementById('result').textContent = 'Wrong!';
+        document.getElementById('result2').textContent = 'Wrong!';
     }
     quizIndex++;
     if(quizIndex < quizLength){
         setupQuiz();
     }else{
-        // document.getElementById('question').textContent = 'All done!';
-        // document.getElementById('question2').textContent = 'Your final score is' + 'time_seconds';
-        // document.getElementById('question3').textcontent = document.SubmitEvent
         endQuiz();
-  
     }
-
 };
 
 //refactoring the events(clicks) by making handlerIndex property and while loop
@@ -154,6 +148,15 @@ function endQuiz() {
     clearInterval(countInterval);
     quizOverview.style.display='block';
     questionView.style.display='none';
+    highScoreView.style.display='none';
+    finalScore.textContent=time;
+}
+
+function highScores() {
+    clearInterval(countInterval);
+    quizOverview.style.display='block';
+    questionView.style.display='none';
+
     finalScore.textContent=time;
 }
 

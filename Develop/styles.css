@@ -40,6 +40,30 @@
     text-align: right;
   }
   
+  .startQuiz2 {
+    font-size: 1.3rem;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .startBtn2 {
+    outline: none;
+    border: none;
+    color: #FFF;
+    width: 120px;
+    margin: 4px 2px;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 10px;
+    background: rgb(43, 3, 74);
+    font-size: 1rem;
+    border-radius: 12px;
+    position: relative;
+    top: -3px;
+    box-shadow: 0 0px var(--grey);
+  }
+
   .main {
     font-size: 1.3rem;
     width: 600px;
@@ -57,6 +81,15 @@
     font-style: italic;
     color: grey;
     font-size: 2em;
+    border-top: solid 1px gray;
+  }
+
+  .result2 {
+    width: 600px;
+    margin: auto;
+    font-style: italic;
+    color: grey;
+    font-size: 1.5em;
     border-top: solid 1px gray;
   }
 
@@ -84,4 +117,28 @@
 
 .options {
 padding: 50px;
+}
+
+.quizOverview2 {
+  font-size: 1.3rem;
+  width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.submit2 {
+  outline: none;
+  border: none;
+  color: #FFF;
+  width: 120px;
+  margin: 4px 2px;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 10px;
+  background: rgb(43, 3, 74);
+  font-size: 1rem;
+  border-radius: 12px;
+  position: relative;
+  top: -3px;
+  box-shadow: 0 0px var(--grey);
 }
