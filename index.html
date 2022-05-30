@@ -12,30 +12,38 @@
 <body>
     <div class=" wrapper">
         <header>
-            <div class="high" > View high scores </div>
-            <div class="text-center" id="count-down-timer" ></div>
+            <div class="high"> View high scores </div>
+            <div class="text-center" id="count-down-timer"></div>
         </header>
+
+        <!-- Start View -->
+        <div id='startQuiz' >
+            <h1> Coding quiz challenge </h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id='startBtn' >Start</button>
+        </div>
+
+        <!-- Questions View -->
+        <div id="questionView" style="display: none;">
             <div>
-            <h1 class='main' id='question'> Coding quiz challenge </h1>
+                <h1 class='main' id='question'></h1>
             </div>
             <div class='main' id='question2'>
-                <!-- <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
-                    answers will penalize your score/time by ten seconds!</p> -->
             </div>
             <div class='main' id='question3'></div>
             <div>
                 <div class='options'>
                     <!-- <button type="submit">"button"</button> -->
-                    <div class= 'answers'>
+                    <div class='answers'>
                         <button id="answer1" class='btn'>primary</button>
                     </div>
-                    <div class= 'answers'>
+                    <div class='answers'>
                         <button id="answer2" class='btn'>primary</button>
                     </div>
-                    <div class= 'answers'>
+                    <div class='answers'>
                         <button id="answer1" class='btn'>primary</button>
                     </div>
-                    <div class= 'answers'>
+                    <div class='answers'>
                         <button id="answer1" class='btn'>primary</button>
                     </div>
                 </div>
@@ -44,8 +52,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- quiz over view -->
+        <div id="quizOverview"  style="display: none;"> 
+            Coding quiz challenge 
+            <p>Your final score is<span id="finalScore"></span></p>
+            <p>Enter initials:</p>
+            <input id="initial" />
+            <button id="submit" >submit</button>
+        </div>
     </div>
-            <script src="./Develop/script.js"></script>
+    </div>
+    <script src="./Develop/script.js"></script>
 </body>
 
 </html>

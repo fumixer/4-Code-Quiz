@@ -1,27 +1,43 @@
+var startView= document.getElementById('startQuiz');
+var quizOverview= document.getElementById('quizOverview')
+var questionView = document.getElementById('questionView')
+var startBtn = document.getElementById('startBtn')
+var countDownTimer =document.getElementById('count-down-timer')
+var finalScore = document.getElementById('finalScore')
+var submit = document.addEventListener('click',initial)
+
+// Timer
+let countInterval;
+var time = 75;
+
+
+function startQuiz (){
+    startView.style.display='none';
+    questionView.style.display='block';
+    setTimer();
+}
+
 //Timer
 function paddedFormat(num) {
     return num < 10 ? "0" + num : num; 
 }
 
-function startCountDown(duration, element) {
-    let secondsRemaining = duration;
-    let min = 0;
-    let sec = 0;
-    let countInterval = setInterval(function () {
-        min = parseInt(secondsRemaining / 100);
-        sec = parseInt(secondsRemaining % 100);
-        element.textContent = 'Time: '+`${paddedFormat(sec)}`;
-        secondsRemaining = secondsRemaining - 1;
-        if (secondsRemaining < 0) { clearInterval(countInterval) };
+function startCountDown() {
+
+    countInterval = setInterval(function () {
+        time--;
+        countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
+        
+        if (time < 0) { 
+            endQuiz();
+        };
     }, 1000);
 }
-window.onload = function () {
-    let time_minutes = 0; // Value in minutes
-    let time_seconds = 75; // Value in seconds
-    let duration = time_minutes * 60 + time_seconds;
-    element = document.querySelector('#count-down-timer');
-    element.textContent = 'Time: '+`${paddedFormat(time_seconds)}`;
-    startCountDown(--duration, element);
+// window.onload = function () {
+function setTimer () {
+
+    countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
+    startCountDown();
 };
 
 //first page
@@ -78,7 +94,7 @@ let quizIndex = 0;
 
 //define the button function to make the coding short
 //put $ sign in the front to tell it includes HTML object
-const $button = document.getElementsByTagName('button');
+const $button = document.getElementsByClassName('btn');
 const buttonLength = $button.length;
 
 //quiz all process
@@ -108,15 +124,18 @@ const clickHandler = (e) => {
     if (quiz[quizIndex].correct === e.target.textContent){ 
         document.getElementById('result').textContent = 'Correct!';
     } else {
+        time-=10;
+        countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
         document.getElementById('result').textContent = 'Wrong!';
     }
     quizIndex++;
     if(quizIndex < quizLength){
         setupQuiz();
     }else{
-        document.getElementById('question').textContent = 'All done!';
-        document.getElementById('question2').textContent = 'Your final score is' + 'time_seconds';
-        document.getElementById('question3').textcontent = document.SubmitEvent
+        // document.getElementById('question').textContent = 'All done!';
+        // document.getElementById('question2').textContent = 'Your final score is' + 'time_seconds';
+        // document.getElementById('question3').textcontent = document.SubmitEvent
+        endQuiz();
   
     }
 
@@ -131,3 +150,11 @@ while(handlerIndex < buttonLength) {
     handlerIndex++;
 }
 
+function endQuiz() {
+    clearInterval(countInterval);
+    quizOverview.style.display='block';
+    questionView.style.display='none';
+    finalScore.textContent=time;
+}
+
+startBtn.addEventListener('click', startQuiz) 
