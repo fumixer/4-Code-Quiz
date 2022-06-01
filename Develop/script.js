@@ -5,7 +5,7 @@ var startBtn = document.getElementById('startBtn');
 var countDownTimer =document.getElementById('count-down-timer');
 var finalScore = document.getElementById('finalScore');
 var highScoreView = document.getElementById('highScoreView2');
-// var submit = document.addEventListener('click');
+let submit4 = document.getElementById('submit4')
 
 // Timer
 let countInterval;
@@ -26,7 +26,7 @@ function startCountDown() {
         };
     }, 1000);
 }
-// window.onload = function () {
+
 function setTimer () {
     countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
     startCountDown();
@@ -35,7 +35,6 @@ function setTimer () {
 function startQuiz (){
     startView.style.display='none';
     questionView.style.display='block';
-    highScoreView.style.display='none';
     setTimer();
 }
 
@@ -97,7 +96,6 @@ const buttonLength = $button.length;
 const setupQuiz = () => {
     //Send the questions to HTML
     document.getElementById('question').textContent = quiz[quizIndex].question;
-    highScoreView.style.display='none';
     //Refactoring of 1.1
     let buttonIndex = 0;
     let buttonLength = $button.length;
@@ -108,12 +106,6 @@ const setupQuiz = () => {
 }
 //call the action
 setupQuiz();
-
-//1.1 Send the answers strings to HTML
-// $button[0].textContent=answers[0];
-// $button[1].textContent=answers[1];
-// $button[2].textContent=answers[2];
-// $button[3].textContent=answers[3];
 
 //Judge the answer by the click is correct/incorrect
 //refactoring the if function by making clickHandler function and taget function
@@ -144,20 +136,28 @@ while(handlerIndex < buttonLength) {
     handlerIndex++;
 }
 
+// All done ! page
 function endQuiz() {
     clearInterval(countInterval);
     quizOverview.style.display='block';
     questionView.style.display='none';
-    highScoreView.style.display='none';
     finalScore.textContent=time;
 }
 
+//Showing the final score page
 function highScores() {
-    clearInterval(countInterval);
-    quizOverview.style.display='block';
+    // clearInterval(countInterval);
+    quizOverview.style.display='none';
     questionView.style.display='none';
-
+    highScoreView.style.display='block';
     finalScore.textContent=time;
+    var playerInitials = document.querySelector("input[name='initial']").value;
+    document.getElementById('highScore2').textContent = finalScore ;
 }
+
+// var submit3= document.addEventListener('click', ()=>{
+//     highScores();
+//     // document.getElementById("highScore2").innerHTML= playerInitials.value;
+// });
 
 startBtn.addEventListener('click', startQuiz) 

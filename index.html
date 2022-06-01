@@ -53,24 +53,28 @@
             </div>
         </div>
 
+
         <!-- quiz over view -->
         <div class='quizOverview2' id="quizOverview"  style="display: none;"> 
             <h1>All done!</h1>
             <p>Your final score is <span id="finalScore"></span></p>
             <p>Enter initials:</p>
-            <input id="initial" />
-            <button class='submit2' id="submit" >submit</button>
+            <!-- text part -->
+            <input id="initial" type="text" value="" />
+            <!-- button part -->
+            <input type="button" value="Submit" onclick="highScores()" class='submit1'/>
             <div>
                 <p class="result2" id="result2"></p>
             </div>
         </div>
 
+        
          <!-- High score view -->
-         <div class='highScoreView' id="highScoreView2">
+         <div class='highScoreView' id="highScoreView2" style="display: none;">
             <h1>High scores</h1>
             <p class="highScore" id="highScore2"> </p>
-            <input id="goBack" />
-            <button class='submit2' id="submit" >submit</button>
+            <input type='button' value="Go Back" class='goBack' id="goBack" onclick="" />
+            <input type='button' value="Clear high scores" onclick="" Class='clearHighScores'/>
          </div> 
     </div>
     </div>

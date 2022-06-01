@@ -126,7 +126,7 @@ padding: 50px;
   text-align: left;
 }
 
-.submit2 {
+.submit1 {
   outline: none;
   border: none;
   color: #FFF;
@@ -141,4 +141,60 @@ padding: 50px;
   position: relative;
   top: -3px;
   box-shadow: 0 0px var(--grey);
+}
+
+.submit1:hover {
+  background: rgb(244, 10, 228);
+  color: #fff;
+}
+
+.goBack {
+  outline: none;
+  border: none;
+  color: #FFF;
+  width: 120px;
+  margin: 4px 2px;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 10px;
+  background: rgb(43, 3, 74);
+  font-size: 1rem;
+  border-radius: 12px;
+  position: relative;
+  top: -3px;
+  box-shadow: 0 0px var(--grey);
+}
+
+.goBack:hover {
+  background: rgb(244, 10, 228);
+  color: #fff;
+}
+
+.highScoreView {
+  font-size: 1.3rem;
+  width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.clearHighScores{
+  outline: none;
+  border: none;
+  color: #FFF;
+  width: 180px;
+  margin: 4px 2px;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 10px;
+  background: rgb(43, 3, 74);
+  font-size: 1rem;
+  border-radius: 12px;
+  position: relative;
+  top: -3px;
+  box-shadow: 0 0px var(--grey);
+}
+
+.clearHighScores:hover{
+  background: rgb(244, 10, 228);
+  color: #fff;
 }
