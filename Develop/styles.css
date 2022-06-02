@@ -198,3 +198,9 @@ padding: 50px;
   background: rgb(244, 10, 228);
   color: #fff;
 }
+
+.highScore {
+	padding: 10px;
+	background-color: #e6cbee;
+	color: black;
+}

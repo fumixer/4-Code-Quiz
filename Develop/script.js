@@ -6,6 +6,8 @@ var countDownTimer =document.getElementById('count-down-timer');
 var finalScore = document.getElementById('finalScore');
 var highScoreView = document.getElementById('highScoreView2');
 let submit4 = document.getElementById('submit4')
+var goBack = document.getElementById('goBack')
+var initials = document.getElementById('initials')
 
 // Timer
 let countInterval;
@@ -20,7 +22,7 @@ function startCountDown() {
     countInterval = setInterval(function () {
         time--;
         countDownTimer.textContent = 'Time: '+`${paddedFormat(time)}`;
-        
+    
         if (time < 0) { 
             endQuiz();
         };
@@ -35,6 +37,7 @@ function setTimer () {
 function startQuiz (){
     startView.style.display='none';
     questionView.style.display='block';
+    highScoreView.style.display='none';
     setTimer();
 }
 
@@ -141,7 +144,10 @@ function endQuiz() {
     clearInterval(countInterval);
     quizOverview.style.display='block';
     questionView.style.display='none';
+    highScoreView.style.display='none';
     finalScore.textContent=time;
+
+    // var newScore = { initials, finalScore };
 }
 
 //Showing the final score page
@@ -151,13 +157,29 @@ function highScores() {
     questionView.style.display='none';
     highScoreView.style.display='block';
     finalScore.textContent=time;
-    var playerInitials = document.querySelector("input[name='initial']").value;
-    document.getElementById('highScore2').textContent = finalScore ;
+
+
+    document.getElementById('highScore2').textContent = initials + time ;
+    console.log(time)
+
 }
 
-// var submit3= document.addEventListener('click', ()=>{
-//     highScores();
-//     // document.getElementById("highScore2").innerHTML= playerInitials.value;
-// });
+// function submitResults() {
+//     var finalScore = document.getElementById("Time").innerText;
+  
+//     var displayScore = document.getElementById("highScore2");
+//     displayScore.textContent = finalScore;
+    
+//     var initials = initialsEl.value;
+//     var newScore = { initials, finalScore };
+//     //console.log(newScore)
+//     localStorage.setItem("highscores", JSON.stringify(newScore));
+//     var highscoresArray = [];
+//     highscoresArray.push(newScore);
+//     //console.log(highscoresArray);
+//   };
+  
+
 
 startBtn.addEventListener('click', startQuiz) 
+goBack.addEventListener('click', endQuiz)
