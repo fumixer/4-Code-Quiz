@@ -8,6 +8,7 @@ var highScoreView = document.getElementById('highScoreView2');
 let submit4 = document.getElementById('submit4')
 var goBack = document.getElementById('goBack')
 var initials = document.getElementById('initials')
+var ViewHighScores = document.getElementById('ViewHighScores')
 
 // Timer
 let countInterval;
@@ -146,39 +147,20 @@ function endQuiz() {
     questionView.style.display='none';
     highScoreView.style.display='none';
     finalScore.textContent=time;
-
-    // var newScore = { initials, finalScore };
+   
 }
+
 
 //Showing the final score page
 function highScores() {
-    // clearInterval(countInterval);
+    var initials = document.getElementById('initials').value;
+    document.getElementById('highScore2').textContent = initials + ' - ' + time ;
+// clearInterval(countInterval);
     quizOverview.style.display='none';
     questionView.style.display='none';
     highScoreView.style.display='block';
     finalScore.textContent=time;
-
-
-    document.getElementById('highScore2').textContent = initials + time ;
-    console.log(time)
-
 }
-
-// function submitResults() {
-//     var finalScore = document.getElementById("Time").innerText;
-  
-//     var displayScore = document.getElementById("highScore2");
-//     displayScore.textContent = finalScore;
-    
-//     var initials = initialsEl.value;
-//     var newScore = { initials, finalScore };
-//     //console.log(newScore)
-//     localStorage.setItem("highscores", JSON.stringify(newScore));
-//     var highscoresArray = [];
-//     highscoresArray.push(newScore);
-//     //console.log(highscoresArray);
-//   };
-  
 
 
 startBtn.addEventListener('click', startQuiz) 
